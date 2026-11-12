@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+  color: #241c18;
+  background: #e7d5c6;
+  overflow: hidden;
+}
+
+button,
+input,
+a {
+  touch-action: manipulation;
+}
+
+.bloom-label,
+.bloom-label * {
+  pointer-events: none !important;
+}
+
+.bloom-range {
+  height: 44px;
+  accent-color: #8a4034;
+  cursor: pointer;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 6px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 248, 242, 0.4), transparent 42%),
+    linear-gradient(#f6ebe3, #d9c3b2);
+  transition: opacity 0.7s ease;
+}
+
+.loader-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-flower {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  margin-bottom: 10px;
+}
+
+.loader-flower span {
+  position: absolute;
+  inset: 0;
+}
+
+.loader-flower b {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 26px;
+  height: 40px;
+  margin-left: -13px;
+  border-radius: 20px 20px 14px 14px;
+  background: linear-gradient(#f8d5dc, #c44b62);
+  transform-origin: 50% 100%;
+  animation: petal 1.6s ease-in-out infinite;
+}
+
+.loader-flower i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 999px;
+  background: #f2c14d;
+}
+
+@keyframes petal {
+  0%,
+  100% {
+    transform: scale(0.35);
+  }
+  45% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
